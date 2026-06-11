@@ -9,13 +9,13 @@
 
 export default function Privacy() {
   return (
-    <div className="bg-mist py-16">
+    <div className="bg-mist py-10 sm:py-12">
       <div className="container-px max-w-3xl">
         <span className="eyebrow text-green">Legal</span>
-        <h1 className="mt-3 font-display text-4xl font-bold text-navy">Privacy Policy</h1>
+        <h1 className="mt-2.5 font-display text-4xl font-bold leading-tight text-navy">Privacy Policy</h1>
         <p className="mt-2 text-sm text-muted">Last updated: June 2026</p>
 
-        <div className="mt-8 rounded-2xl border border-line bg-white p-8 shadow-soft">
+        <div className="mt-6 rounded-2xl border border-line bg-white p-8 shadow-soft">
           <p className="leading-relaxed text-navy/75">
             This Privacy Policy explains how StallTrack ("we", "our", "the platform") handles
             information in connection with our public website and product. StallTrack is a GovTech
