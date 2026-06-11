@@ -25,7 +25,7 @@ function Hero() {
       <div className="container-px relative grid items-center gap-y-12 gap-x-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-x-14 lg:py-24">
         <Reveal>
           <span className="eyebrow">GovTech · LGU Economic Enterprise Operations</span>
-          <h1 className="mt-5 font-display text-[2.6rem] font-bold leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="mt-4 font-display text-[2.6rem] font-bold leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
             Run public market &amp; facility collections on one clean platform.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
@@ -115,7 +115,7 @@ function Heading({ eyebrow, title, sub, light, center }) {
   return (
     <Reveal className={`max-w-2xl ${center ? 'mx-auto text-center' : ''}`}>
       <span className={`eyebrow ${light ? '' : 'text-green'}`}>{eyebrow}</span>
-      <h2 className={`mt-3 font-display text-3xl font-bold sm:text-4xl ${light ? 'text-white' : 'text-navy'}`}>{title}</h2>
+      <h2 className={`mt-2.5 font-display text-3xl font-bold leading-[1.1] sm:text-4xl ${light ? 'text-white' : 'text-navy'}`}>{title}</h2>
       {sub && <p className={`mt-4 text-lg ${light ? 'text-white/65' : 'text-muted'}`}>{sub}</p>}
     </Reveal>
   )
@@ -130,7 +130,7 @@ function Problem() {
     { t: 'Manual reporting', d: 'Monthly and yearly reports are re-compiled by hand, delaying decisions and reconciliation.' },
   ]
   return (
-    <section className="bg-mist py-20 sm:py-24">
+    <section className="bg-mist py-8 sm:py-12">
       <div className="container-px">
         <Heading eyebrow="The problem" title="Manual operations slow down revenue collection." sub="Many Economic Enterprise Management Offices and public market / facility operations still depend on manual records, paper-based collections, scattered reports, and difficult audit trails." />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -157,7 +157,7 @@ function Solution() {
     'A complete audit trail on every transaction',
   ]
   return (
-    <section className="py-20 sm:py-24">
+    <section className="py-8 sm:py-12">
       <div className="container-px grid items-center gap-12 lg:grid-cols-2">
         <div>
           <Heading eyebrow="The solution" title="Everything in one digital platform." sub="StallTrack centralizes stall records, rental collections, payment tracking, reports, audit logs, and dashboards — so offices spend less time on paperwork and more on service." />
@@ -210,7 +210,7 @@ function Features() {
     { t: 'Mobile collector support', d: 'Optional field collection for collectors — record on-site and sync.', p: <><rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12" y2="18" /></> },
   ]
   return (
-    <section id="features" className="scroll-mt-20 bg-mist py-20 sm:py-24">
+    <section id="features" className="scroll-mt-20 bg-mist py-8 sm:py-12">
       <div className="container-px">
         <Heading eyebrow="Features" title="Built around real office workflows." sub="Designed around the day-to-day work of economic enterprise and public market offices." />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -243,7 +243,7 @@ function UseCases() {
     'Payment and delinquency tracking',
   ]
   return (
-    <section id="usecases" className="scroll-mt-20 py-20 sm:py-24">
+    <section id="usecases" className="scroll-mt-20 py-8 sm:py-12">
       <div className="container-px">
         <Heading eyebrow="Use cases" title="Who StallTrack helps." sub="Built for public market offices, LGU-managed facilities, and teams handling rental collections and operational reporting." />
         <Reveal className="mt-10 flex flex-wrap gap-3">
@@ -278,7 +278,7 @@ function ShotFrame({ src, alt, title, sub, delay = 0 }) {
 
 function Preview() {
   return (
-    <section id="preview" className="scroll-mt-20 bg-mist py-20 sm:py-24">
+    <section id="preview" className="scroll-mt-20 bg-mist py-8 sm:py-12">
       <div className="container-px">
         <Heading center eyebrow="Product showcase" title="A closer look at StallTrack." sub="The web admin area, collector app, and payor portal — all using fictional sample data for illustration." />
 
@@ -306,7 +306,7 @@ function Security() {
     { t: 'Secure records management', d: 'Operational data is handled privately and never surfaced on this public site.' },
   ]
   return (
-    <section id="security" className="scroll-mt-20 bg-navy py-20 text-white sm:py-24">
+    <section id="security" className="scroll-mt-20 bg-navy py-8 text-white sm:py-12">
       <div className="container-px">
         <Heading light eyebrow="Security & privacy" title="Private by design." sub="StallTrack treats operational data as private. This website is a public company page — the admin system itself is access-controlled and does not need to be public." />
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
@@ -330,7 +330,7 @@ function Security() {
 /* ───────────────────────── Founder ───────────────────────── */
 function Founder() {
   return (
-    <section id="founder" className="scroll-mt-20 py-12 sm:py-16">
+    <section id="founder" className="scroll-mt-20 py-8 sm:py-10">
       <div className="container-px">
         <Reveal>
           <div className="rounded-3xl border border-line bg-mist p-8 sm:p-12">
@@ -368,7 +368,7 @@ function Founder() {
 /* ───────────────────────── Contact / CTA ───────────────────────── */
 function Contact() {
   return (
-    <section id="contact" className="scroll-mt-20 pb-24">
+    <section id="contact" className="scroll-mt-20 pb-10 sm:pb-14">
       <div className="container-px">
         <Reveal>
           <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-navy to-navy-600 p-10 text-white sm:p-14">
