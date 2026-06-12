@@ -91,7 +91,7 @@ function HeroCard() {
 /* ───────────────────────── Trust strip ───────────────────────── */
 function TrustStrip() {
   const items = [
-    ['8', 'Facility types supported'],
+    ['8', 'Configurable facility types'],
     ['3', 'Role-based access levels'],
     ['100%', 'Audited financial actions'],
     ['Web + Mobile', 'Admin & field collection'],
@@ -222,6 +222,67 @@ function Features() {
                 </span>
                 <h3 className="mt-4 font-display text-lg font-bold text-navy">{f.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{f.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ───────────────────────── Facility Types ───────────────────────── */
+function FacilityTypes() {
+  const types = [
+    { name: 'Public Market', model: 'Daily', desc: 'Per-stall daily fees with optional utilities and per-kilo produce or fish charges.', eg: 'New Public Market (NPM)', p: <><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></> },
+    { name: 'Commercial Center', model: 'Monthly', desc: 'Fixed monthly rent for commercial stalls and units, with contract terms and expiry.', eg: 'Tampak / New Commercial Center', p: <><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /></> },
+    { name: 'Food & BBQ Stalls', model: 'Monthly', desc: 'Monthly space rental for food courts and barbecue vendors.', eg: 'Barbecue Stand (BBQ)', p: <><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" /><line x1="4" y1="22" x2="4" y2="15" /></> },
+    { name: 'Iceplant', model: 'Monthly', desc: 'Monthly space and utility rental for cold-storage or ice production.', eg: 'Iceplant (ICE)', p: <><line x1="12" y1="2" x2="12" y2="22" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></> },
+    { name: 'Slaughterhouse', model: 'Per head', desc: 'Per-animal fees by type (hog, cattle, carabao) with official-receipt entry.', eg: 'Slaughterhouse (SLH)', p: <><path d="M20.59 13.41 11 22l-9-9V2h11l7.59 9.41a2 2 0 0 1 0 2.82z" /><circle cx="6.5" cy="6.5" r="1.5" /></> },
+    { name: 'Transport Terminal', model: 'Per trip', desc: 'Per-trip dispatch fees with queuing and departure-order tracking.', eg: 'Transport Terminal (TRM)', p: <><rect x="1" y="3" width="15" height="13" rx="1" /><path d="M16 8h4l3 5v3h-7V8z" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></> },
+    { name: 'Weekly / Tabo-an Market', model: 'Per vendor', desc: 'Per-vendor fees collected on scheduled market days (e.g. every Friday).', eg: 'Tabo-an Public Market (TPM)', p: <><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></> },
+    { name: 'Custom Monthly Facility', model: 'Configurable', desc: 'Any other LGU enterprise on a monthly model — added on request as you onboard.', eg: 'Configurable per LGU', p: <><line x1="4" y1="21" x2="4" y2="14" /><line x1="4" y1="10" x2="4" y2="3" /><line x1="12" y1="21" x2="12" y2="12" /><line x1="12" y1="8" x2="12" y2="3" /><line x1="20" y1="21" x2="20" y2="16" /><line x1="20" y1="12" x2="20" y2="3" /><line x1="1" y1="14" x2="7" y2="14" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="17" y1="16" x2="23" y2="16" /></> },
+  ]
+  return (
+    <section id="facilities" className="scroll-mt-20 py-8 sm:py-12">
+      <div className="container-px">
+        <Heading
+          center
+          eyebrow="Facility types"
+          title="One platform, many facility types."
+          sub="StallTrack models facilities as configurable types — each with its own billing rhythm. Cantilan's EEMO, our first deployment, runs the eight below; the names, rates, and rules adapt to any LGU's enterprises."
+        />
+
+        <Reveal>
+          <div className="mx-auto mt-8 flex max-w-3xl items-start gap-3 rounded-2xl border border-gold/30 bg-gold/[0.06] p-5">
+            <span className="mt-0.5 grid h-7 w-7 flex-shrink-0 place-items-center rounded-lg bg-gold/15 text-gold">
+              <Icon path={<><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></>} className="h-4 w-4" />
+            </span>
+            <p className="text-sm leading-relaxed text-navy/70">
+              <span className="font-semibold text-navy">Not locked to one LGU.</span> Facility names and fee
+              structures are configured per office — billing models (daily, monthly, per-head, per-trip,
+              per-vendor) are reused across markets, terminals, slaughterhouses, and more.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {types.map((t, i) => (
+            <Reveal key={t.name} delay={(i % 4) * 80}>
+              <div className="group h-full rounded-2xl border border-line bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-card">
+                <div className="flex items-center justify-between">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-gold transition group-hover:scale-105 group-hover:bg-navy-600">
+                    <Icon path={t.p} className="h-5 w-5" />
+                  </span>
+                  <span className="rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-navy/70">
+                    {t.model}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-display text-lg font-bold text-navy">{t.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{t.desc}</p>
+                <div className="mt-4 border-t border-line pt-3 text-[11px] font-medium text-muted/80">
+                  e.g. {t.eg}
+                </div>
               </div>
             </Reveal>
           ))}
@@ -414,6 +475,7 @@ export default function Home() {
       <Problem />
       <Solution />
       <Features />
+      <FacilityTypes />
       <UseCases />
       <Preview />
       <Security />
