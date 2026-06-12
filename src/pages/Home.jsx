@@ -130,7 +130,7 @@ function Problem() {
     { t: 'Manual reporting', d: 'Monthly and yearly reports are re-compiled by hand, delaying decisions and reconciliation.' },
   ]
   return (
-    <section className="bg-mist py-8 sm:py-12">
+    <section className="bg-mist py-8 sm:py-10">
       <div className="container-px">
         <Heading eyebrow="The problem" title="Manual operations slow down revenue collection." sub="Many Economic Enterprise Management Offices and public market / facility operations still depend on manual records, paper-based collections, scattered reports, and difficult audit trails." />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -157,7 +157,7 @@ function Solution() {
     'A complete audit trail on every transaction',
   ]
   return (
-    <section className="py-8 sm:py-12">
+    <section className="py-8 sm:py-10">
       <div className="container-px grid items-center gap-12 lg:grid-cols-2">
         <div>
           <Heading eyebrow="The solution" title="Everything in one digital platform." sub="StallTrack centralizes stall records, rental collections, payment tracking, reports, audit logs, and dashboards — so offices spend less time on paperwork and more on service." />
@@ -210,7 +210,7 @@ function Features() {
     { t: 'Mobile collector support', d: 'Optional field collection for collectors — record on-site and sync.', p: <><rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12" y2="18" /></> },
   ]
   return (
-    <section id="features" className="scroll-mt-20 bg-mist py-8 sm:py-12">
+    <section id="features" className="scroll-mt-20 bg-mist py-8 sm:py-10">
       <div className="container-px">
         <Heading eyebrow="Features" title="Built around real office workflows." sub="Designed around the day-to-day work of economic enterprise and public market offices." />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -244,7 +244,7 @@ function FacilityTypes() {
     { name: 'Custom Monthly Facility', model: 'Configurable', desc: 'Any other LGU enterprise on a monthly model — added on request as you onboard.', eg: 'Configurable per LGU', p: <><line x1="4" y1="21" x2="4" y2="14" /><line x1="4" y1="10" x2="4" y2="3" /><line x1="12" y1="21" x2="12" y2="12" /><line x1="12" y1="8" x2="12" y2="3" /><line x1="20" y1="21" x2="20" y2="16" /><line x1="20" y1="12" x2="20" y2="3" /><line x1="1" y1="14" x2="7" y2="14" /><line x1="9" y1="8" x2="15" y2="8" /><line x1="17" y1="16" x2="23" y2="16" /></> },
   ]
   return (
-    <section id="facilities" className="scroll-mt-20 py-8 sm:py-12">
+    <section id="facilities" className="scroll-mt-20 py-8 sm:py-10">
       <div className="container-px">
         <Heading
           center
@@ -304,7 +304,7 @@ function UseCases() {
     'Payment and delinquency tracking',
   ]
   return (
-    <section id="usecases" className="scroll-mt-20 py-8 sm:py-12">
+    <section id="usecases" className="scroll-mt-20 bg-mist py-8 sm:py-10">
       <div className="container-px">
         <Heading eyebrow="Use cases" title="Who StallTrack helps." sub="Built for public market offices, LGU-managed facilities, and teams handling rental collections and operational reporting." />
         <Reveal className="mt-10 flex flex-wrap gap-3">
@@ -339,7 +339,7 @@ function ShotFrame({ src, alt, title, sub, delay = 0 }) {
 
 function Preview() {
   return (
-    <section id="preview" className="scroll-mt-20 bg-mist py-8 sm:py-12">
+    <section id="preview" className="scroll-mt-20 py-8 sm:py-10">
       <div className="container-px">
         <Heading center eyebrow="Product showcase" title="A closer look at StallTrack." sub="The web admin area, collector app, and payor portal — all using fictional sample data for illustration." />
 
@@ -367,7 +367,7 @@ function Security() {
     { t: 'Secure records management', d: 'Operational data is handled privately and never surfaced on this public site.' },
   ]
   return (
-    <section id="security" className="scroll-mt-20 bg-navy py-8 text-white sm:py-12">
+    <section id="security" className="scroll-mt-20 bg-navy py-8 text-white sm:py-10">
       <div className="container-px">
         <Heading light eyebrow="Security & privacy" title="Private by design." sub="StallTrack treats operational data as private. This website is a public company page — the admin system itself is access-controlled and does not need to be public." />
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
