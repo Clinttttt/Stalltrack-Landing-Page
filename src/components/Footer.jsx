@@ -20,6 +20,7 @@ export default function Footer() {
           <h4 className="text-xs font-bold uppercase tracking-wider text-white/40">Product</h4>
           <ul className="mt-4 space-y-2.5 text-sm text-white/70">
             <li><a href="/#features" className="hover:text-gold">Features</a></li>
+            <li><Link to="/ai-roadmap" className="hover:text-gold">AI Roadmap</Link></li>
             <li><a href="/#usecases" className="hover:text-gold">Use Cases</a></li>
             <li><a href="/#preview" className="hover:text-gold">Product Preview</a></li>
             <li><a href="/#security" className="hover:text-gold">Security</a></li>

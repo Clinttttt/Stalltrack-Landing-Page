@@ -13,6 +13,7 @@ const Logo = () => (
 const links = [
   { href: '/#features', label: 'Features' },
   { href: '/#facilities', label: 'Facilities' },
+  { href: '/ai-roadmap', label: 'AI Roadmap' },
   { href: '/#usecases', label: 'Use Cases' },
   { href: '/#preview', label: 'Product' },
   { href: '/#security', label: 'Security' },

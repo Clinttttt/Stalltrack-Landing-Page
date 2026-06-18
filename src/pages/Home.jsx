@@ -31,12 +31,12 @@ function Hero() {
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
             StallTrack is a GovTech SaaS platform for Economic Enterprise Management Offices and
             LGU-managed facilities — digitizing stall records, rental collections, payment tracking,
-            audit logs, and operational reports.
+            audit logs, operational reports, and planned AI-assisted workflows.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#features" className="btn-gold">View Features</a>
+            <a href="/ai-roadmap" className="btn-ghost">AI Roadmap</a>
             <a href="#contact" className="btn-ghost">Contact Founder</a>
-            <a href="#preview" className="btn-ghost">Request Demo</a>
           </div>
           <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-white/55">
             <span className="flex items-center gap-2"><Dot /> Public markets</span>
@@ -105,6 +105,53 @@ function TrustStrip() {
             <div className="mt-1 text-xs text-muted sm:text-sm">{k}</div>
           </div>
         ))}
+      </div>
+    </section>
+  )
+}
+
+/* ───────────────────────── AI Roadmap Teaser ───────────────────────── */
+function AIFuture() {
+  const items = [
+    { t: 'Collection Risk Agent', d: 'Prioritizes vendors, stalls, and facilities that may need follow-up before arrears grow.' },
+    { t: 'Report Drafting Agent', d: 'Prepares collection summaries, delinquency narratives, and variance notes for staff review.' },
+    { t: 'Audit Review Agent', d: 'Flags unusual edits, OR sequence gaps, and transaction patterns that may need supervisor attention.' },
+  ]
+  return (
+    <section id="ai" className="scroll-mt-20 bg-navy py-8 text-white sm:py-10">
+      <div className="container-px grid items-center gap-10 lg:grid-cols-[0.92fr,1.08fr]">
+        <div>
+          <Heading
+            light
+            eyebrow="Future AI capability"
+            title="An agentic AI roadmap for revenue offices."
+            sub="StallTrack is being designed with a practical AI layer that can assist staff with risk detection, report preparation, audit review, and collector task planning."
+          />
+          <Reveal delay={80}>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="/ai-roadmap" className="btn-gold">View AI Roadmap</a>
+              <a href="#contact" className="btn-ghost">Discuss Pilot</a>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="grid gap-4">
+          {items.map((item, i) => (
+            <Reveal key={item.t} delay={i * 90}>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-5 transition hover:bg-white/[0.075]">
+                <div className="flex items-start gap-4">
+                  <span className="mt-0.5 grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-gold/15 text-gold">
+                    <Icon path={<><path d="M12 2v4" /><path d="M12 18v4" /><path d="m4.93 4.93 2.83 2.83" /><path d="m16.24 16.24 2.83 2.83" /><path d="M2 12h4" /><path d="M18 12h4" /><path d="m4.93 19.07 2.83-2.83" /><path d="m16.24 7.76 2.83-2.83" /><circle cx="12" cy="12" r="3" /></>} className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-lg font-bold">{item.t}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-white/58">{item.d}</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -474,6 +521,7 @@ export default function Home() {
       <TrustStrip />
       <Problem />
       <Solution />
+      <AIFuture />
       <Features />
       <FacilityTypes />
       <UseCases />
