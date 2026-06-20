@@ -487,12 +487,12 @@ function Contact() {
                   Interested in StallTrack for your office or facility? Reach out for a walkthrough or demo.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a href="mailto:founder@stalltrack.site" className="btn-gold">Email the Founder</a>
-                  <a href="mailto:founder@stalltrack.site?subject=StallTrack%20Demo%20Request" className="btn-ghost">Request a Demo</a>
+                  <a href="mailto:clint@stalltrack.site" className="btn-gold">Email the Founder</a>
+                  <a href="mailto:clint@stalltrack.site?subject=StallTrack%20Demo%20Request" className="btn-ghost">Request a Demo</a>
                 </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6">
-                <Row k="Business email" v="founder@stalltrack.site" />
+                <Row k="Business email" v="clint@stalltrack.site" />
                 <Row k="Website" v="stalltrack.site" />
                 <Row k="Product" v="StallTrack (GovTech SaaS)" />
                 <Row k="Stage" v="Early-stage / MVP" last />
