@@ -20,7 +20,7 @@ export default function DemoRequestModal({ onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-navy/75 p-4 py-6 backdrop-blur-sm sm:items-center sm:p-8"
+      className="fixed inset-0 z-[60] flex items-center justify-center overflow-hidden bg-navy/75 p-4 backdrop-blur-sm sm:p-8"
       role="presentation"
       onMouseDown={onClose}
     >
@@ -28,10 +28,10 @@ export default function DemoRequestModal({ onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="demo-request-title"
-        className="relative my-auto w-full max-w-3xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+        className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:max-h-[calc(100vh-4rem)]"
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-5 border-b border-line px-6 py-5 sm:px-8">
+        <div className="flex shrink-0 items-start justify-between gap-5 border-b border-line px-6 py-5 sm:px-8">
           <div>
             <span className="eyebrow text-green">Book a walkthrough</span>
             <h2 id="demo-request-title" className="mt-2 font-display text-3xl font-bold text-navy">Request a tailored demo.</h2>
@@ -49,7 +49,7 @@ export default function DemoRequestModal({ onClose }) {
           </button>
         </div>
 
-        <form action="https://formsubmit.co/cofounder@stalltrack.site" method="POST" className="p-6 sm:p-8">
+        <form action="https://formsubmit.co/cofounder@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
           <input type="hidden" name="_subject" value="New StallTrack demo request" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value={confirmationUrl} />
