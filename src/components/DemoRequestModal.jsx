@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 const facilityTypes = [
   { value: 'Public market', description: 'Stalls, rentals, and collections' },
@@ -11,27 +12,68 @@ const facilityTypes = [
 function FacilityTypeSelect() {
   const [isOpen, setIsOpen] = useState(false)
   const [selected, setSelected] = useState('')
+  const [menuPosition, setMenuPosition] = useState(null)
   const pickerRef = useRef(null)
+  const triggerRef = useRef(null)
+  const menuRef = useRef(null)
+
+  const updateMenuPosition = () => {
+    const trigger = triggerRef.current
+    if (!trigger) return
+
+    const rect = trigger.getBoundingClientRect()
+    const gap = 8
+    const edgeGap = 16
+    const spaceBelow = window.innerHeight - rect.bottom - gap - edgeGap
+    const spaceAbove = rect.top - gap - edgeGap
+    const openUpward = spaceBelow < 280 && spaceAbove > spaceBelow
+    const availableSpace = openUpward ? spaceAbove : spaceBelow
+
+    setMenuPosition({
+      left: rect.left,
+      width: rect.width,
+      maxHeight: Math.max(140, Math.min(360, availableSpace)),
+      ...(openUpward ? { bottom: window.innerHeight - rect.top + gap } : { top: rect.bottom + gap }),
+    })
+  }
 
   useEffect(() => {
     const closeOnOutsideClick = (event) => {
-      if (!pickerRef.current?.contains(event.target)) setIsOpen(false)
+      if (!pickerRef.current?.contains(event.target) && !menuRef.current?.contains(event.target)) setIsOpen(false)
     }
 
     document.addEventListener('mousedown', closeOnOutsideClick)
     return () => document.removeEventListener('mousedown', closeOnOutsideClick)
   }, [])
 
+  useEffect(() => {
+    if (!isOpen) return
+
+    updateMenuPosition()
+    window.addEventListener('resize', updateMenuPosition)
+    window.addEventListener('scroll', updateMenuPosition, true)
+
+    return () => {
+      window.removeEventListener('resize', updateMenuPosition)
+      window.removeEventListener('scroll', updateMenuPosition, true)
+    }
+  }, [isOpen])
+
   return (
     <div ref={pickerRef} className="relative text-sm font-semibold text-navy">
       <span id="facility-type-label">Facility type</span>
       <input type="hidden" name="facility_type" value={selected} />
       <button
+        ref={triggerRef}
         type="button"
         aria-labelledby="facility-type-label"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        onClick={() => setIsOpen((open) => !open)}
+        aria-controls="facility-type-menu"
+        onClick={() => {
+          if (!isOpen) updateMenuPosition()
+          setIsOpen((open) => !open)
+        }}
         className={`mt-2 flex w-full items-center justify-between rounded-xl border bg-white px-3.5 py-3 text-left font-normal outline-none transition focus:ring-2 focus:ring-gold/20 ${
           isOpen ? 'border-gold ring-2 ring-gold/20' : 'border-line hover:border-gold/60'
         }`}
@@ -42,8 +84,15 @@ function FacilityTypeSelect() {
         </svg>
       </button>
 
-      {isOpen && (
-        <div role="listbox" aria-labelledby="facility-type-label" className="relative z-10 mt-2 w-full overflow-hidden rounded-xl border border-line bg-white pb-4 pt-1.5 shadow-card">
+      {isOpen && menuPosition && createPortal(
+        <div
+          ref={menuRef}
+          id="facility-type-menu"
+          role="listbox"
+          aria-labelledby="facility-type-label"
+          style={menuPosition}
+          className="fixed z-[70] overflow-y-auto rounded-xl border border-line bg-white pb-4 pt-1.5 shadow-card"
+        >
           {facilityTypes.map((facility) => (
             <button
               key={facility.value}
@@ -60,7 +109,8 @@ function FacilityTypeSelect() {
               <span className="mt-0.5 block text-xs font-normal text-muted">{facility.description}</span>
             </button>
           ))}
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   )
