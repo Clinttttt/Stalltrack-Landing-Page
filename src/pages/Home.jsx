@@ -451,7 +451,7 @@ function Founder() {
                 />
               </div>
               <div>
-                <span className="eyebrow text-green">Co Founder</span>
+                <span className="eyebrow text-green">Founder</span>
                 <h2 className="mt-2 font-display text-3xl font-bold text-navy">Clint Villanueva</h2>
                 <p className="mt-1 text-sm font-semibold text-muted">.NET Software Developer</p>
                 <p className="mt-4 max-w-2xl leading-relaxed text-navy/75">
@@ -487,12 +487,12 @@ function Contact({ onRequestDemo }) {
                   Interested in StallTrack for your office or facility? Tell us about your operations and see how we can support your team.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a href="mailto:cofounder@stalltrack.site" className="btn-gold">Email the Co Founder</a>
+                  <a href="mailto:clint@stalltrack.site" className="btn-gold">Email the Founder</a>
                   <button type="button" onClick={onRequestDemo} className="btn-ghost">Explore StallTrack</button>
                 </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6">
-                <Row k="Business email" v="cofounder@stalltrack.site" />
+                <Row k="Business email" v="clint@stalltrack.site" />
                 <Row k="Website" v="stalltrack.site" />
                 <Row k="Product" v="StallTrack (GovTech SaaS)" />
                 <Row k="Stage" v="Early-stage / MVP" last />

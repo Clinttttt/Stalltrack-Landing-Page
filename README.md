@@ -30,7 +30,7 @@ npm run preview  # preview the production build
 
 ## Domain & email alignment (for AWS / Kiro validation)
 - Public website: `https://stalltrack.site`
-- Business email: `cofounder@stalltrack.site`
+- Business email: `clint@stalltrack.site`
 - AWS account email: same `@stalltrack.site` domain
 - Private admin system: `https://app.stalltrack.site/login` (kept private / staging — not this site)
 
