@@ -1,4 +1,70 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
+
+const facilityTypes = [
+  { value: 'Public market', description: 'Stalls, rentals, and collections' },
+  { value: 'Transport terminal', description: 'Trip fees and dispatch operations' },
+  { value: 'Commercial facility', description: 'Leases, tenants, and billing' },
+  { value: 'Multiple facilities', description: 'Centralized multi-site operations' },
+  { value: 'Other', description: 'Tell us about your facility' },
+]
+
+function FacilityTypeSelect() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [selected, setSelected] = useState('')
+  const pickerRef = useRef(null)
+
+  useEffect(() => {
+    const closeOnOutsideClick = (event) => {
+      if (!pickerRef.current?.contains(event.target)) setIsOpen(false)
+    }
+
+    document.addEventListener('mousedown', closeOnOutsideClick)
+    return () => document.removeEventListener('mousedown', closeOnOutsideClick)
+  }, [])
+
+  return (
+    <div ref={pickerRef} className="relative text-sm font-semibold text-navy">
+      <span id="facility-type-label">Facility type</span>
+      <input type="hidden" name="facility_type" value={selected} />
+      <button
+        type="button"
+        aria-labelledby="facility-type-label"
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen((open) => !open)}
+        className={`mt-2 flex w-full items-center justify-between rounded-xl border bg-white px-3.5 py-3 text-left font-normal outline-none transition focus:ring-2 focus:ring-gold/20 ${
+          isOpen ? 'border-gold ring-2 ring-gold/20' : 'border-line hover:border-gold/60'
+        }`}
+      >
+        <span className={selected ? 'text-navy' : 'text-muted'}>{selected || 'Select a facility type'}</span>
+        <svg viewBox="0 0 24 24" className={`h-5 w-5 shrink-0 transition ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div role="listbox" aria-labelledby="facility-type-label" className="absolute z-10 mt-2 w-full overflow-hidden rounded-xl border border-line bg-white py-1.5 shadow-card">
+          {facilityTypes.map((facility) => (
+            <button
+              key={facility.value}
+              type="button"
+              role="option"
+              aria-selected={selected === facility.value}
+              onClick={() => {
+                setSelected(facility.value)
+                setIsOpen(false)
+              }}
+              className={`w-full px-3.5 py-2.5 text-left transition hover:bg-mist ${selected === facility.value ? 'bg-green-bg' : ''}`}
+            >
+              <span className="block text-sm font-semibold text-navy">{facility.value}</span>
+              <span className="mt-0.5 block text-xs font-normal text-muted">{facility.description}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function DemoRequestModal({ onClose }) {
   const confirmationUrl = `${window.location.origin}/thanks`
@@ -73,17 +139,7 @@ export default function DemoRequestModal({ onClose }) {
               Your role *
               <input required name="role" autoComplete="organization-title" placeholder="e.g. Economic Enterprise Head" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
             </label>
-            <label className="block text-sm font-semibold text-navy">
-              Facility type
-              <select name="facility_type" defaultValue="" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20">
-                <option value="" disabled>Select one</option>
-                <option>Public market</option>
-                <option>Transport terminal</option>
-                <option>Commercial facility</option>
-                <option>Multiple facilities</option>
-                <option>Other</option>
-              </select>
-            </label>
+            <FacilityTypeSelect />
             <label className="block text-sm font-semibold text-navy">
               Phone number
               <input type="tel" name="phone" autoComplete="tel" placeholder="Optional" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
