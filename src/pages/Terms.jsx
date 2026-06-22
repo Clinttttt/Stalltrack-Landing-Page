@@ -80,8 +80,8 @@ export default function Terms() {
           <Section title="8. Contact">
             <p>
               Questions about these terms? Contact{' '}
-              <a href="mailto:clint@stalltrack.site" className="font-semibold text-green hover:underline">
-                clint@stalltrack.site
+              <a href="mailto:cofounder@stalltrack.site" className="font-semibold text-green hover:underline">
+                cofounder@stalltrack.site
               </a>.
             </p>
           </Section>
