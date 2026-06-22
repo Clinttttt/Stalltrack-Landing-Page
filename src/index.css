@@ -12,6 +12,28 @@ body {
   @apply font-sans text-ink bg-white antialiased;
 }
 
+.facility-picker-menu {
+  scrollbar-width: thin;
+  scrollbar-color: #9aabb9 transparent;
+}
+
+.facility-picker-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.facility-picker-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.facility-picker-menu::-webkit-scrollbar-thumb {
+  background: #9aabb9;
+  border-radius: 999px;
+}
+
+.facility-picker-menu::-webkit-scrollbar-thumb:hover {
+  background: #6a8aa0;
+}
+
 @layer components {
   .container-px {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;

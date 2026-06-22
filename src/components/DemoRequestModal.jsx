@@ -91,7 +91,7 @@ function FacilityTypeSelect() {
           role="listbox"
           aria-labelledby="facility-type-label"
           style={menuPosition}
-          className="fixed z-[70] overflow-y-auto rounded-xl border border-line bg-white pb-4 pt-1.5 shadow-card"
+          className="facility-picker-menu fixed z-[70] overflow-y-auto rounded-xl border border-line bg-white pb-4 pt-1.5 shadow-card"
         >
           {facilityTypes.map((facility) => (
             <button
