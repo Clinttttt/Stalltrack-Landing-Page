@@ -7,6 +7,7 @@ import AIRoadmap from './pages/AIRoadmap.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
 import ThankYou from './pages/ThankYou.jsx'
+import DemoRequestModal from './components/DemoRequestModal.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -40,13 +41,15 @@ function BackToTop() {
 }
 
 export default function App() {
+  const [demoModalOpen, setDemoModalOpen] = useState(false)
+
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
-      <Navbar />
+      <Navbar onRequestDemo={() => setDemoModalOpen(true)} />
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home onRequestDemo={() => setDemoModalOpen(true)} />} />
           <Route path="/ai-roadmap" element={<AIRoadmap />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
@@ -55,6 +58,7 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
+      {demoModalOpen && <DemoRequestModal onClose={() => setDemoModalOpen(false)} />}
     </div>
   )
 }

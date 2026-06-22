@@ -20,7 +20,7 @@ const links = [
   { href: '/#contact', label: 'Contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onRequestDemo }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -46,7 +46,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="/#contact" className="btn-navy py-2.5">Request Demo</a>
+          <button type="button" onClick={onRequestDemo} className="btn-navy py-2.5">Request Demo</button>
         </div>
 
         <button
@@ -68,7 +68,7 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a href="/#contact" onClick={() => setOpen(false)} className="btn-navy mt-2">Request Demo</a>
+            <button type="button" onClick={() => { setOpen(false); onRequestDemo() }} className="btn-navy mt-2">Request Demo</button>
           </div>
         </div>
       )}
