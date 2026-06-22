@@ -20,8 +20,27 @@ function ScrollToTop() {
     const target = document.getElementById(hash.slice(1))
     if (!target) return
 
-    const frame = window.requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }))
-    return () => window.cancelAnimationFrame(frame)
+    const scrollToTarget = () => {
+      const top = target.getBoundingClientRect().top + window.scrollY - 80
+      const previousBehavior = document.documentElement.style.scrollBehavior
+
+      document.documentElement.style.scrollBehavior = 'auto'
+      window.scrollTo({ top: Math.max(0, top), behavior: 'auto' })
+      document.documentElement.style.scrollBehavior = previousBehavior
+    }
+
+    const frame = window.requestAnimationFrame(scrollToTarget)
+    const correction = window.setTimeout(scrollToTarget, 500)
+
+    if (document.readyState !== 'complete') {
+      window.addEventListener('load', scrollToTarget, { once: true })
+    }
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.clearTimeout(correction)
+      window.removeEventListener('load', scrollToTarget)
+    }
   }, [pathname, hash])
   return null
 }
