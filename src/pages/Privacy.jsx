@@ -26,8 +26,9 @@ export default function Privacy() {
 
           <Section title="1. Information We Collect">
             <p>
-              <strong>Public website.</strong> If you contact us by email, we receive the
-              information you choose to send (such as your name, email address, and message).
+              <strong>Public website.</strong> If you contact us by email or submit a demo request,
+              we receive the information you choose to send (such as your name, work email,
+              organization, role, phone number, and message).
             </p>
             <p>
               <strong>Product (admin system).</strong> When deployed for an office or facility, the

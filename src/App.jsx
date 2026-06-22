@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import AIRoadmap from './pages/AIRoadmap.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
+import ThankYou from './pages/ThankYou.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/ai-roadmap" element={<AIRoadmap />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/thanks" element={<ThankYou />} />
         </Routes>
       </main>
       <Footer />

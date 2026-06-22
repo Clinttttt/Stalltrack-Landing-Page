@@ -475,42 +475,103 @@ function Founder() {
 
 /* ───────────────────────── Contact / CTA ───────────────────────── */
 function Contact() {
+  const confirmationUrl = `${window.location.origin}/thanks`
+
   return (
     <section id="contact" className="scroll-mt-20 pb-10 sm:pb-14">
       <div className="container-px">
         <Reveal>
           <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-navy to-navy-600 p-10 text-white sm:p-14">
-            <div className="grid items-center gap-8 lg:grid-cols-[1.4fr,1fr]">
+            <div className="grid items-start gap-10 lg:grid-cols-[0.85fr,1.15fr]">
               <div>
-                <h2 className="font-display text-3xl font-bold sm:text-4xl">Let's talk about your operations.</h2>
+                <span className="eyebrow">Book a walkthrough</span>
+                <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Request a tailored demo.</h2>
                 <p className="mt-4 max-w-xl text-lg text-white/70">
-                  Interested in StallTrack for your office or facility? Reach out for a walkthrough or demo.
+                  Tell us a little about your office or facility. We will use your details to prepare a relevant StallTrack walkthrough.
                 </p>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <a href="mailto:cofounder@stalltrack.site" className="btn-gold">Email the Founder</a>
-                  <a href="mailto:cofounder@stalltrack.site?subject=StallTrack%20Demo%20Request" className="btn-ghost">Request a Demo</a>
+                <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.05] p-6">
+                  <p className="text-sm font-semibold text-white">What to expect</p>
+                  <ul className="mt-4 space-y-3 text-sm leading-relaxed text-white/65">
+                    <li className="flex gap-3"><Dot /><span>A focused conversation about your current collection and reporting workflow.</span></li>
+                    <li className="flex gap-3"><Dot /><span>A walkthrough tailored to your public market or facility operations.</span></li>
+                    <li className="flex gap-3"><Dot /><span>No commitment required — this is simply an introduction to StallTrack.</span></li>
+                  </ul>
                 </div>
+                <p className="mt-6 text-sm text-white/55">
+                  Prefer email?{' '}
+                  <a href="mailto:cofounder@stalltrack.site" className="font-semibold text-gold transition hover:text-gold-light">
+                    cofounder@stalltrack.site
+                  </a>
+                </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6">
-                <Row k="Business email" v="cofounder@stalltrack.site" />
-                <Row k="Website" v="stalltrack.site" />
-                <Row k="Product" v="StallTrack (GovTech SaaS)" />
-                <Row k="Stage" v="Early-stage / MVP" last />
-              </div>
+              <form
+                action="https://formsubmit.co/cofounder@stalltrack.site"
+                method="POST"
+                className="rounded-2xl bg-white p-6 text-navy shadow-card sm:p-8"
+              >
+                <input type="hidden" name="_subject" value="New StallTrack demo request" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value={confirmationUrl} />
+                <input type="text" name="_honey" className="hidden" tabIndex="-1" autoComplete="off" />
+
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <h3 className="font-display text-2xl font-bold">Tell us about your needs</h3>
+                    <p className="mt-1 text-sm text-muted">Fields marked with * are required.</p>
+                  </div>
+                  <span className="hidden rounded-full bg-green-bg px-3 py-1.5 text-xs font-bold text-green sm:block">Demo request</span>
+                </div>
+
+                <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                  <label className="block text-sm font-semibold">
+                    Full name *
+                    <input required name="name" autoComplete="name" placeholder="Your name" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                  </label>
+                  <label className="block text-sm font-semibold">
+                    Work email *
+                    <input required type="email" name="email" autoComplete="email" placeholder="you@organization.gov.ph" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                  </label>
+                  <label className="block text-sm font-semibold">
+                    Organization or LGU *
+                    <input required name="organization" autoComplete="organization" placeholder="e.g. City Government of ..." className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                  </label>
+                  <label className="block text-sm font-semibold">
+                    Your role *
+                    <input required name="role" autoComplete="organization-title" placeholder="e.g. Economic Enterprise Head" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                  </label>
+                  <label className="block text-sm font-semibold">
+                    Facility type
+                    <select name="facility_type" defaultValue="" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20">
+                      <option value="" disabled>Select one</option>
+                      <option>Public market</option>
+                      <option>Transport terminal</option>
+                      <option>Commercial facility</option>
+                      <option>Multiple facilities</option>
+                      <option>Other</option>
+                    </select>
+                  </label>
+                  <label className="block text-sm font-semibold">
+                    Phone number
+                    <input type="tel" name="phone" autoComplete="tel" placeholder="Optional" className="mt-2 w-full rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                  </label>
+                </div>
+                <label className="mt-5 block text-sm font-semibold">
+                  What would you like to improve?
+                  <textarea name="message" rows="4" placeholder="Tell us about your current process, reporting needs, or demo questions." className="mt-2 w-full resize-y rounded-xl border border-line bg-white px-3.5 py-3 font-normal text-navy outline-none transition placeholder:text-muted/70 focus:border-gold focus:ring-2 focus:ring-gold/20" />
+                </label>
+                <div className="mt-6 flex flex-col gap-4 border-t border-line pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="max-w-sm text-xs leading-relaxed text-muted">
+                    By submitting, you agree that StallTrack may use these details to respond to your request, as described in our{' '}
+                    <a href="/privacy" className="font-semibold text-green hover:underline">Privacy Policy</a>.
+                  </p>
+                  <button type="submit" className="btn-navy shrink-0">Send demo request</button>
+                </div>
+              </form>
             </div>
           </div>
         </Reveal>
       </div>
     </section>
-  )
-}
-
-function Row({ k, v, last }) {
-  return (
-    <div className={`flex flex-col gap-0.5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 ${last ? '' : 'border-b border-white/10'}`}>
-      <span className="text-xs text-white/45 sm:text-sm">{k}</span>
-      <span className="break-all text-sm font-semibold text-white sm:break-normal sm:text-right">{v}</span>
-    </div>
   )
 }
 
