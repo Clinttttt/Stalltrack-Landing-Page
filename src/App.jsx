@@ -10,10 +10,19 @@ import ThankYou from './pages/ThankYou.jsx'
 import DemoRequestModal from './components/DemoRequestModal.jsx'
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    if (!hash) {
+      window.scrollTo(0, 0)
+      return
+    }
+
+    const target = document.getElementById(hash.slice(1))
+    if (!target) return
+
+    const frame = window.requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }))
+    return () => window.cancelAnimationFrame(frame)
+  }, [pathname, hash])
   return null
 }
 

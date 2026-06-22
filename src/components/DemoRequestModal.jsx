@@ -27,20 +27,20 @@ export default function DemoRequestModal({ onClose }) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-labelledby="demo-request-title"
+        aria-labelledby="product-inquiry-title"
         className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:max-h-[calc(100vh-4rem)]"
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className="flex shrink-0 items-start justify-between gap-5 border-b border-line px-6 py-5 sm:px-8">
           <div>
-            <span className="eyebrow text-green">Book a walkthrough</span>
-            <h2 id="demo-request-title" className="mt-2 font-display text-3xl font-bold text-navy">Request a tailored demo.</h2>
-            <p className="mt-1 text-sm text-muted">Tell us about your office or facility, and we will prepare a relevant walkthrough.</p>
+            <span className="eyebrow text-green">Let's get started</span>
+            <h2 id="product-inquiry-title" className="mt-2 font-display text-3xl font-bold text-navy">Tell us about your operations.</h2>
+            <p className="mt-1 text-sm text-muted">Share a little about your office or facility and see how StallTrack can support your team.</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close demo request form"
+            aria-label="Close inquiry form"
             className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line text-navy transition hover:bg-mist"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -50,7 +50,7 @@ export default function DemoRequestModal({ onClose }) {
         </div>
 
         <form action="https://formsubmit.co/cofounder@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
-          <input type="hidden" name="_subject" value="New StallTrack demo request" />
+          <input type="hidden" name="_subject" value="New StallTrack product inquiry" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value={confirmationUrl} />
           <input type="text" name="_honey" className="hidden" tabIndex="-1" autoComplete="off" />
@@ -98,7 +98,7 @@ export default function DemoRequestModal({ onClose }) {
               By submitting, you agree that StallTrack may use these details to respond to your request, as described in our{' '}
               <a href="/privacy" className="font-semibold text-green hover:underline">Privacy Policy</a>.
             </p>
-            <button type="submit" className="btn-navy shrink-0">Send demo request</button>
+            <button type="submit" className="btn-navy shrink-0">Send inquiry</button>
           </div>
         </form>
       </div>

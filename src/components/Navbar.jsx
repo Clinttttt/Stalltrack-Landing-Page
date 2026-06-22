@@ -46,7 +46,7 @@ export default function Navbar({ onRequestDemo }) {
               {l.label}
             </a>
           ))}
-          <button type="button" onClick={onRequestDemo} className="btn-navy py-2.5">Request Demo</button>
+          <button type="button" onClick={onRequestDemo} className="btn-navy py-2.5">Explore StallTrack</button>
         </div>
 
         <button
@@ -68,7 +68,7 @@ export default function Navbar({ onRequestDemo }) {
                 {l.label}
               </a>
             ))}
-            <button type="button" onClick={() => { setOpen(false); onRequestDemo() }} className="btn-navy mt-2">Request Demo</button>
+            <button type="button" onClick={() => { setOpen(false); onRequestDemo() }} className="btn-navy mt-2">Explore StallTrack</button>
           </div>
         </div>
       )}

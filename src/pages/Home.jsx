@@ -484,11 +484,11 @@ function Contact({ onRequestDemo }) {
               <div>
                 <h2 className="font-display text-3xl font-bold sm:text-4xl">Let's talk about your operations.</h2>
                 <p className="mt-4 max-w-xl text-lg text-white/70">
-                  Interested in StallTrack for your office or facility? Request a tailored walkthrough or demo.
+                  Interested in StallTrack for your office or facility? Tell us about your operations and see how we can support your team.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a href="mailto:cofounder@stalltrack.site" className="btn-gold">Email the Co Founder</a>
-                  <button type="button" onClick={onRequestDemo} className="btn-ghost">Request a Demo</button>
+                  <button type="button" onClick={onRequestDemo} className="btn-ghost">Explore StallTrack</button>
                 </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6">

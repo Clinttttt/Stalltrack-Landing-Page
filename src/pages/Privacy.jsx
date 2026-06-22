@@ -26,7 +26,7 @@ export default function Privacy() {
 
           <Section title="1. Information We Collect">
             <p>
-              <strong>Public website.</strong> If you contact us by email or submit a demo request,
+              <strong>Public website.</strong> If you contact us by email or submit an inquiry,
               we receive the information you choose to send (such as your name, work email,
               organization, role, phone number, and message).
             </p>
@@ -40,7 +40,7 @@ export default function Privacy() {
 
           <Section title="2. How We Use Information">
             <p>
-              We use contact information solely to respond to inquiries and demo requests.
+              We use contact information solely to respond to inquiries about StallTrack.
               Operational data within a deployment is used only to provide the platform's
               functionality (records, collections, reporting, and audit trails) to the operating
               organization.
