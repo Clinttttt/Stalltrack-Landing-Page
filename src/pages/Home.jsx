@@ -451,7 +451,7 @@ function Founder() {
                 />
               </div>
               <div>
-                <span className="eyebrow text-green">Founder</span>
+                <span className="eyebrow text-green">Co Founder</span>
                 <h2 className="mt-2 font-display text-3xl font-bold text-navy">Clint Villanueva</h2>
                 <p className="mt-1 text-sm font-semibold text-muted">.NET Software Developer</p>
                 <p className="mt-4 max-w-2xl leading-relaxed text-navy/75">
