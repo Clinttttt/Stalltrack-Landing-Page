@@ -8,6 +8,7 @@ import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
 import ThankYou from './pages/ThankYou.jsx'
 import DemoRequestModal from './components/DemoRequestModal.jsx'
+import FounderContactModal from './components/FounderContactModal.jsx'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -70,6 +71,7 @@ function BackToTop() {
 
 export default function App() {
   const [demoModalOpen, setDemoModalOpen] = useState(false)
+  const [founderModalOpen, setFounderModalOpen] = useState(false)
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -77,7 +79,7 @@ export default function App() {
       <Navbar onRequestDemo={() => setDemoModalOpen(true)} />
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Home onRequestDemo={() => setDemoModalOpen(true)} />} />
+          <Route path="/" element={<Home onRequestDemo={() => setDemoModalOpen(true)} onContactFounder={() => setFounderModalOpen(true)} />} />
           <Route path="/ai-roadmap" element={<AIRoadmap />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
@@ -87,6 +89,7 @@ export default function App() {
       <Footer />
       <BackToTop />
       {demoModalOpen && <DemoRequestModal onClose={() => setDemoModalOpen(false)} />}
+      {founderModalOpen && <FounderContactModal onClose={() => setFounderModalOpen(false)} />}
     </div>
   )
 }

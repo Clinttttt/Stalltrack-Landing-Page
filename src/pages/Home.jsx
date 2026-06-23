@@ -474,7 +474,7 @@ function Founder() {
 }
 
 /* ───────────────────────── Contact / CTA ───────────────────────── */
-function Contact({ onRequestDemo }) {
+function Contact({ onRequestDemo, onContactFounder }) {
   return (
     <section id="contact" className="scroll-mt-20 pb-10 sm:pb-14">
       <div className="container-px">
@@ -487,7 +487,7 @@ function Contact({ onRequestDemo }) {
                   Interested in StallTrack for your office or facility? Tell us about your operations and see how we can support your team.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <a href="mailto:clint@stalltrack.site" className="btn-gold">Email the Founder</a>
+                  <button type="button" onClick={onContactFounder} className="btn-gold">Email the Founder</button>
                   <button type="button" onClick={onRequestDemo} className="btn-ghost">Explore StallTrack</button>
                 </div>
               </div>
@@ -514,7 +514,7 @@ function Row({ k, v, last }) {
   )
 }
 
-export default function Home({ onRequestDemo }) {
+export default function Home({ onRequestDemo, onContactFounder }) {
   return (
     <>
       <Hero />
@@ -528,7 +528,7 @@ export default function Home({ onRequestDemo }) {
       <Preview />
       <Security />
       <Founder />
-      <Contact onRequestDemo={onRequestDemo} />
+      <Contact onRequestDemo={onRequestDemo} onContactFounder={onContactFounder} />
     </>
   )
 }
