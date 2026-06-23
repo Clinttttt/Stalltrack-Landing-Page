@@ -24,6 +24,19 @@ export default function Navbar({ onRequestDemo }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
+  const navigateToContact = (event) => {
+    event.preventDefault()
+
+    const target = document.getElementById('contact')
+    if (!target) {
+      window.location.assign('/#contact')
+      return
+    }
+
+    window.history.pushState(null, '', '/#contact')
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
@@ -42,7 +55,7 @@ export default function Navbar({ onRequestDemo }) {
 
         <div className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-navy/70 transition hover:text-navy">
+            <a key={l.href} href={l.href} onClick={l.href === '/#contact' ? navigateToContact : undefined} className="text-sm font-medium text-navy/70 transition hover:text-navy">
               {l.label}
             </a>
           ))}
@@ -64,7 +77,15 @@ export default function Navbar({ onRequestDemo }) {
         <div className="border-t border-line bg-white md:hidden">
           <div className="container-px flex flex-col py-3">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2.5 text-sm font-medium text-navy/80">
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={l.href === '/#contact' ? (event) => {
+                  setOpen(false)
+                  navigateToContact(event)
+                } : () => setOpen(false)}
+                className="py-2.5 text-sm font-medium text-navy/80"
+              >
                 {l.label}
               </a>
             ))}
