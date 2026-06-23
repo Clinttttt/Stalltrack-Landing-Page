@@ -367,14 +367,21 @@ function UseCases() {
 }
 
 /* ───────────────────────── Product Showcase (real UI) ───────────────────────── */
-function ShotFrame({ src, alt, title, sub, delay = 0 }) {
+function ShotFrame({ src, alt, title, sub, width, height, delay = 0 }) {
   const webp = src.replace(/\.png$/i, '.webp')
   return (
     <Reveal as="figure" delay={delay}>
       <div className="overflow-hidden rounded-3xl border border-line bg-white p-2.5 shadow-card transition duration-300 hover:shadow-xl sm:p-4">
         <picture>
           <source srcSet={webp} type="image/webp" />
-          <img src={src} alt={alt} loading="lazy" className="block h-auto w-full rounded-2xl" />
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            width={width}
+            height={height}
+            className="block h-auto w-full rounded-2xl"
+          />
         </picture>
       </div>
       <figcaption className="mt-3 text-center text-sm font-semibold text-navy">
@@ -391,12 +398,12 @@ function Preview() {
         <Heading center eyebrow="Product showcase" title="A closer look at StallTrack." sub="The web admin area, collector app, and payor portal — all using fictional sample data for illustration." />
 
         <div className="mx-auto mt-12 max-w-5xl">
-          <ShotFrame src="/showcase/admin.png" alt="StallTrack Web Admin Area — dashboard, facilities, reports" title="Web Admin Area" sub="facility oversight, monitoring, reporting & audit" />
+          <ShotFrame src="/showcase/admin.png" alt="StallTrack Web Admin Area — dashboard, facilities, reports" title="Web Admin Area" sub="facility oversight, monitoring, reporting & audit" width={1448} height={1086} />
         </div>
 
         <div className="mx-auto mt-12 grid max-w-4xl gap-8 sm:grid-cols-2">
-          <ShotFrame src="/showcase/collector.png" alt="StallTrack Collector Area — mobile field collection screens" title="Collector App" sub="field collection & official receipts" delay={80} />
-          <ShotFrame src="/showcase/payor.png" alt="StallTrack Payor Portal — balances, payments, receipts" title="Payor Portal" sub="balances, GCash payments & receipts" delay={160} />
+          <ShotFrame src="/showcase/collector.png" alt="StallTrack Collector Area — mobile field collection screens" title="Collector App" sub="field collection & official receipts" width={1122} height={1402} delay={80} />
+          <ShotFrame src="/showcase/payor.png" alt="StallTrack Payor Portal — balances, payments, receipts" title="Payor Portal" sub="balances, GCash payments & receipts" width={1122} height={1402} delay={160} />
         </div>
 
         <p className="mt-8 text-center text-xs text-muted/80">Sample interface · no real, private, or government data is shown.</p>
