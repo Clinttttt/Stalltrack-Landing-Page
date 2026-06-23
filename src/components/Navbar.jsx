@@ -20,7 +20,7 @@ const links = [
   { href: '/#contact', label: 'Contact' },
 ]
 
-export default function Navbar({ onRequestDemo }) {
+export default function Navbar({ onRequestDemo, onNavigateToContact }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -42,9 +42,15 @@ export default function Navbar({ onRequestDemo }) {
 
         <div className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-navy/70 transition hover:text-navy">
-              {l.label}
-            </a>
+            l.href === '/#contact' ? (
+              <button key={l.href} type="button" onClick={onNavigateToContact} className="text-sm font-medium text-navy/70 transition hover:text-navy">
+                {l.label}
+              </button>
+            ) : (
+              <a key={l.href} href={l.href} className="text-sm font-medium text-navy/70 transition hover:text-navy">
+                {l.label}
+              </a>
+            )
           ))}
           <button type="button" onClick={onRequestDemo} className="btn-navy py-2.5">Explore StallTrack</button>
         </div>
@@ -64,9 +70,15 @@ export default function Navbar({ onRequestDemo }) {
         <div className="border-t border-line bg-white md:hidden">
           <div className="container-px flex flex-col py-3">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2.5 text-sm font-medium text-navy/80">
-                {l.label}
-              </a>
+              l.href === '/#contact' ? (
+                <button key={l.href} type="button" onClick={() => { setOpen(false); onNavigateToContact() }} className="py-2.5 text-left text-sm font-medium text-navy/80">
+                  {l.label}
+                </button>
+              ) : (
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2.5 text-sm font-medium text-navy/80">
+                  {l.label}
+                </a>
+              )
             ))}
             <button type="button" onClick={() => { setOpen(false); onRequestDemo() }} className="btn-navy mt-2">Explore StallTrack</button>
           </div>

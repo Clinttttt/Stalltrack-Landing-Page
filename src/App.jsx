@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
@@ -12,14 +12,24 @@ import FounderContactModal from './components/FounderContactModal.jsx'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
+  const isInitialLoad = useRef(true)
+
   useEffect(() => {
     if (!hash) {
+      if (isInitialLoad.current) {
+        isInitialLoad.current = false
+        return
+      }
+
       window.scrollTo(0, 0)
       return
     }
 
     const target = document.getElementById(hash.slice(1))
     if (!target) return
+
+    if (!isInitialLoad.current) return
+    isInitialLoad.current = false
 
     const scrollToTarget = () => {
       const top = target.getBoundingClientRect().top + window.scrollY - 80
@@ -73,10 +83,26 @@ export default function App() {
   const [demoModalOpen, setDemoModalOpen] = useState(false)
   const [founderModalOpen, setFounderModalOpen] = useState(false)
 
+  const navigateToContact = () => {
+    const target = document.getElementById('contact')
+    if (!target) {
+      window.location.assign('/#contact')
+      return
+    }
+
+    window.history.pushState(null, '', '/#contact')
+    const top = target.getBoundingClientRect().top + window.scrollY - 80
+    const previousBehavior = document.documentElement.style.scrollBehavior
+
+    document.documentElement.style.scrollBehavior = 'auto'
+    window.scrollTo({ top: Math.max(0, top), behavior: 'auto' })
+    document.documentElement.style.scrollBehavior = previousBehavior
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
-      <Navbar onRequestDemo={() => setDemoModalOpen(true)} />
+      <Navbar onRequestDemo={() => setDemoModalOpen(true)} onNavigateToContact={navigateToContact} />
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home onRequestDemo={() => setDemoModalOpen(true)} onContactFounder={() => setFounderModalOpen(true)} />} />
