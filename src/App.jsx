@@ -82,46 +82,11 @@ function BackToTop() {
 export default function App() {
   const [demoModalOpen, setDemoModalOpen] = useState(false)
   const [founderModalOpen, setFounderModalOpen] = useState(false)
-  const contactScrollFrame = useRef(null)
-
-  const navigateToContact = () => {
-    const target = document.getElementById('contact')
-    if (!target) {
-      window.location.assign('/#contact')
-      return
-    }
-
-    window.history.pushState(null, '', '/#contact')
-    const top = target.getBoundingClientRect().top + window.scrollY - 80
-    const destination = Math.max(0, top)
-    const start = window.scrollY
-    const distance = destination - start
-    const duration = Math.min(800, Math.max(350, Math.abs(distance) * 0.12))
-    const startedAt = Date.now()
-
-    if (contactScrollFrame.current) window.cancelAnimationFrame(contactScrollFrame.current)
-
-    const animate = () => {
-      const elapsed = Date.now() - startedAt
-      const progress = Math.min(elapsed / duration, 1)
-      const eased = 1 - (1 - progress) ** 3
-
-      window.scrollTo(0, start + distance * eased)
-
-      if (progress < 1) {
-        contactScrollFrame.current = window.requestAnimationFrame(animate)
-      } else {
-        contactScrollFrame.current = null
-      }
-    }
-
-    contactScrollFrame.current = window.requestAnimationFrame(animate)
-  }
 
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
-      <Navbar onRequestDemo={() => setDemoModalOpen(true)} onNavigateToContact={navigateToContact} />
+      <Navbar onRequestDemo={() => setDemoModalOpen(true)} />
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home onRequestDemo={() => setDemoModalOpen(true)} onContactFounder={() => setFounderModalOpen(true)} />} />
