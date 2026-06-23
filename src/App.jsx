@@ -82,6 +82,7 @@ function BackToTop() {
 export default function App() {
   const [demoModalOpen, setDemoModalOpen] = useState(false)
   const [founderModalOpen, setFounderModalOpen] = useState(false)
+  const contactScrollFrame = useRef(null)
 
   const navigateToContact = () => {
     const target = document.getElementById('contact')
@@ -92,11 +93,29 @@ export default function App() {
 
     window.history.pushState(null, '', '/#contact')
     const top = target.getBoundingClientRect().top + window.scrollY - 80
-    const previousBehavior = document.documentElement.style.scrollBehavior
+    const destination = Math.max(0, top)
+    const start = window.scrollY
+    const distance = destination - start
+    const duration = Math.min(800, Math.max(350, Math.abs(distance) * 0.12))
+    const startedAt = Date.now()
 
-    document.documentElement.style.scrollBehavior = 'auto'
-    window.scrollTo({ top: Math.max(0, top), behavior: 'auto' })
-    document.documentElement.style.scrollBehavior = previousBehavior
+    if (contactScrollFrame.current) window.cancelAnimationFrame(contactScrollFrame.current)
+
+    const animate = () => {
+      const elapsed = Date.now() - startedAt
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - (1 - progress) ** 3
+
+      window.scrollTo(0, start + distance * eased)
+
+      if (progress < 1) {
+        contactScrollFrame.current = window.requestAnimationFrame(animate)
+      } else {
+        contactScrollFrame.current = null
+      }
+    }
+
+    contactScrollFrame.current = window.requestAnimationFrame(animate)
   }
 
   return (
