@@ -28,10 +28,10 @@ export default function FounderContactModal({ onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="founder-contact-title"
-        className="w-full max-w-2xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+        className="relative flex max-h-[calc(100dvh-2rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl sm:max-h-[calc(100vh-4rem)]"
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <div className="flex items-start justify-between gap-5 border-b border-line px-6 py-5 sm:px-8">
+        <div className="flex shrink-0 items-start justify-between gap-5 border-b border-line px-6 py-5 sm:px-8">
           <div>
             <span className="eyebrow text-green">Founder contact</span>
             <h2 id="founder-contact-title" className="mt-2 font-display text-3xl font-bold text-navy">Send a message to Clint.</h2>
@@ -49,7 +49,7 @@ export default function FounderContactModal({ onClose }) {
           </button>
         </div>
 
-        <form action="https://formsubmit.co/clint@stalltrack.site" method="POST" className="p-6 sm:p-8">
+        <form action="https://formsubmit.co/clint@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
           <input type="hidden" name="_subject" value="New message for StallTrack founder" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value={confirmationUrl} />
