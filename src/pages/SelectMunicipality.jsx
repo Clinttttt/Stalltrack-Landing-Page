@@ -126,11 +126,11 @@ function Header({ activeSection }) {
         <div className="fixed inset-0 z-50 lg:hidden" role="presentation">
           <button
             type="button"
-            className="absolute inset-0 bg-navy/55 backdrop-blur-sm"
+            className="absolute inset-0 bg-navy/55 backdrop-blur-sm motion-safe:animate-[sidebarOverlayIn_180ms_ease-out]"
             onClick={() => setSidebarOpen(false)}
             aria-label="Close navigation menu"
           />
-          <aside className="absolute right-0 top-0 flex h-[100dvh] w-[min(20rem,86vw)] flex-col border-l border-gold/30 bg-white shadow-2xl">
+          <aside className="absolute right-0 top-0 flex h-[100dvh] w-[min(20rem,86vw)] flex-col border-l border-gold/30 bg-white shadow-2xl motion-safe:animate-[sidebarPanelIn_240ms_cubic-bezier(0.22,1,0.36,1)]">
             <div className="flex items-center justify-between border-b border-line px-5 py-4">
               <img
                 src="/carcanmadcarlan/logo/stalltrack-logo-lockup-transparent.png"
@@ -251,9 +251,9 @@ function MunicipalityCard({ municipality }) {
   return <div aria-label={`${municipality.name} is upcoming`}>{card}</div>
 }
 
-function SectionHeading({ eyebrow, title, children, center = false, light = false }) {
+function SectionHeading({ eyebrow, title, children, center = false, mobileCenter = false, light = false }) {
   return (
-    <div className={`max-w-3xl ${center ? 'mx-auto text-center' : ''}`}>
+    <div className={`max-w-3xl ${center ? 'mx-auto text-center' : mobileCenter ? 'mx-auto text-center lg:mx-0 lg:text-left' : ''}`}>
       <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-gold">{eyebrow}</span>
       <h2 className={`mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl ${light ? 'text-white' : 'text-navy'}`}>
         {title}
@@ -309,9 +309,9 @@ function OverviewSection() {
 
   return (
     <section id="overview" className="scroll-mt-24 border-t border-line/80 bg-gradient-to-b from-[#eef3f8] to-white py-9 sm:py-10">
-      <div className="container-px grid items-center gap-8 lg:grid-cols-[0.95fr,1.05fr]">
+      <div className="container-px grid items-center gap-8 text-center lg:grid-cols-[0.95fr,1.05fr] lg:text-left">
         <RevealBlock>
-          <SectionHeading eyebrow="Overview" title="Modernizing LGU revenue collection across CARCANMADCARLAN.">
+          <SectionHeading eyebrow="Overview" title="Modernizing LGU revenue collection across CARCANMADCARLAN." mobileCenter>
             StallTrack presents a formal digital approach for managing local revenue collection activities
             across public markets and LGU-managed facilities. Cantilan serves as the primary implementation,
             while the wider CARCANMADCARLAN view demonstrates how the same service model can support
@@ -319,10 +319,10 @@ function OverviewSection() {
           </SectionHeading>
         </RevealBlock>
 
-        <div className="grid gap-4">
+        <div className="mx-auto grid w-full max-w-xl gap-4 lg:max-w-none">
           {items.map(([title, body], index) => (
             <RevealBlock key={title} delay={index * 90} className="group rounded-2xl border border-line bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:shadow-card">
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
                 <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-navy text-gold transition group-hover:bg-navy-600">
                   <span className="font-display text-lg font-bold">{index + 1}</span>
                 </span>

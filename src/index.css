@@ -12,6 +12,26 @@ body {
   @apply font-sans text-ink bg-white antialiased;
 }
 
+@keyframes sidebarOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sidebarPanelIn {
+  from {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .facility-picker-menu {
   scrollbar-width: thin;
   scrollbar-color: #9aabb9 transparent;
