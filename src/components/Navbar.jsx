@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Logo = () => (
   <Link to="/" className="flex items-center gap-2.5">
-    <img src="/logo.png" alt="StallTrack" className="h-10 w-10 rounded-xl object-cover" />
+    <img src="/carcanmadcarlan/logo/stalltrack-seal-logo.png" alt="StallTrack seal" className="h-10 w-10 rounded-full object-contain" />
     <span className="font-display text-xl font-bold text-navy">
       Stall<span className="text-gold">Track</span>
     </span>
