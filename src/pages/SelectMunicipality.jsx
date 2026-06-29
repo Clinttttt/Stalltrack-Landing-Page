@@ -309,9 +309,9 @@ function OverviewSection() {
 
   return (
     <section id="overview" className="scroll-mt-24 border-t border-line/80 bg-gradient-to-b from-[#eef3f8] to-white py-9 sm:py-10">
-      <div className="container-px grid items-center gap-8 text-center lg:grid-cols-[0.95fr,1.05fr] lg:text-left">
+      <div className="container-px grid items-center gap-8 lg:grid-cols-[0.95fr,1.05fr]">
         <RevealBlock>
-          <SectionHeading eyebrow="Overview" title="Modernizing LGU revenue collection across CARCANMADCARLAN." mobileCenter>
+          <SectionHeading eyebrow="Overview" title="Modernizing LGU revenue collection across CARCANMADCARLAN.">
             StallTrack presents a formal digital approach for managing local revenue collection activities
             across public markets and LGU-managed facilities. Cantilan serves as the primary implementation,
             while the wider CARCANMADCARLAN view demonstrates how the same service model can support
@@ -319,10 +319,10 @@ function OverviewSection() {
           </SectionHeading>
         </RevealBlock>
 
-        <div className="mx-auto grid w-full max-w-xl gap-4 lg:max-w-none">
+        <div className="grid w-full gap-4">
           {items.map(([title, body], index) => (
             <RevealBlock key={title} delay={index * 90} className="group rounded-2xl border border-line bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:shadow-card">
-              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
+              <div className="flex items-start gap-4">
                 <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-navy text-gold transition group-hover:bg-navy-600">
                   <span className="font-display text-lg font-bold">{index + 1}</span>
                 </span>
