@@ -35,7 +35,7 @@ export default function FounderContactModal({ onClose }) {
           <div>
             <span className="eyebrow text-green">Founder contact</span>
             <h2 id="founder-contact-title" className="mt-2 font-display text-3xl font-bold text-navy">Send a message to Clint.</h2>
-            <p className="mt-1 text-sm text-muted">Your message will be sent directly to clint@stalltrack.site.</p>
+            <p className="mt-1 text-sm text-muted">Your message will be sent directly to founder@stalltrack.site.</p>
           </div>
           <button
             type="button"
@@ -49,7 +49,7 @@ export default function FounderContactModal({ onClose }) {
           </button>
         </div>
 
-        <form action="https://formsubmit.co/clint@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
+        <form action="https://formsubmit.co/founder@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
           <input type="hidden" name="_subject" value="New message for StallTrack founder" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value={confirmationUrl} />

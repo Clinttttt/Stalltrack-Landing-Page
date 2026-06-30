@@ -74,8 +74,8 @@ export default function Privacy() {
           <Section title="6. Contact">
             <p>
               For privacy questions, contact{' '}
-              <a href="mailto:clint@stalltrack.site" className="font-semibold text-green hover:underline">
-                clint@stalltrack.site
+              <a href="mailto:founder@stalltrack.site" className="font-semibold text-green hover:underline">
+                founder@stalltrack.site
               </a>.
             </p>
           </Section>

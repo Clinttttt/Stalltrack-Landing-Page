@@ -451,7 +451,7 @@ function ContactSection() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a href="mailto:clint@stalltrack.site?subject=StallTrack%20Capstone%20Project%20Inquiry" className="btn-gold">
+              <a href="mailto:founder@stalltrack.site?subject=StallTrack%20Capstone%20Project%20Inquiry" className="btn-gold">
                 <Icon
                   path={<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>}
                   className="h-5 w-5"

@@ -165,7 +165,7 @@ export default function DemoRequestModal({ onClose }) {
           </button>
         </div>
 
-        <form action="https://formsubmit.co/clint@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
+        <form action="https://formsubmit.co/founder@stalltrack.site" method="POST" className="min-h-0 overflow-y-auto p-6 sm:p-8">
           <input type="hidden" name="_subject" value="New StallTrack product inquiry" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value={confirmationUrl} />

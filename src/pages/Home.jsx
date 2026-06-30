@@ -499,7 +499,7 @@ function Contact({ onRequestDemo, onContactFounder }) {
                 </div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6">
-                <Row k="Business email" v="clint@stalltrack.site" />
+                <Row k="Business email" v="founder@stalltrack.site" />
                 <Row k="Website" v="stalltrack.site" />
                 <Row k="Product" v="StallTrack (GovTech SaaS)" />
                 <Row k="Stage" v="Early-stage / MVP" last />

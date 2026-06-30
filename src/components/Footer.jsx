@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="container-px flex flex-col items-center justify-between gap-2 py-5 text-xs text-white/45 sm:flex-row">
           <p>© {year} StallTrack. All rights reserved.</p>
           <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-            <a href="mailto:clint@stalltrack.site" className="hover:text-gold">clint@stalltrack.site</a>
+            <a href="mailto:founder@stalltrack.site" className="hover:text-gold">founder@stalltrack.site</a>
             <span className="hidden text-white/20 sm:inline">·</span>
             <span>stalltrack.site</span>
           </p>
